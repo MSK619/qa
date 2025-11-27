@@ -1,0 +1,109 @@
+/* Container */
+.faq-container {
+    width: 100%;
+    max-width: 700px;
+    margin: auto;
+    padding: 20px;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  .title {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 28px;
+    font-weight: 600;
+  }
+  
+  /* Search Box */
+  .search-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .search-box {
+    width: 100%;
+    max-width: 400px;
+    padding: 12px 15px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+    transition: 0.3s;
+  }
+  
+  .search-box:focus {
+    border-color: #4a8aff;
+    box-shadow: 0 0 6px #4a8aff70;
+  }
+  
+  /* FAQ Card */
+  .faq-card {
+    border-radius: 12px;
+    margin-bottom: 12px;
+    background: #fff;
+    border: 1px solid #e5e5e5;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease;
+  }
+  
+  .faq-card:hover {
+    transform: translateY(-2px);
+  }
+  
+  /* Question Section */
+  .faq-question {
+    cursor: pointer;
+    padding: 15px 20px;
+    font-weight: 600;
+    font-size: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .toggle-icon {
+    font-size: 20px;
+    font-weight: bold;
+    color: #4a8aff;
+    transition: transform 0.3s ease;
+  }
+  
+  /* Answer Section (Animated) */
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 20px;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+  }
+  
+  .faq-answer.open {
+    padding: 15px 20px;
+    max-height: 200px;
+  }
+  
+  .faq-answer p {
+    color: #444;
+    margin: 0;
+    line-height: 1.5;
+  }
+  
+  .dropdown-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .faq-dropdown {
+    padding: 10px 15px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    background: #fff;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .faq-dropdown:hover {
+    border-color: #4a8aff;
+  }
+  
