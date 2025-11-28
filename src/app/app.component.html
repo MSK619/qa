@@ -3,8 +3,10 @@
   <!-- Dropdown -->
   <div class="dropdown-wrapper">
     <select [(ngModel)]="selectedFaq" (change)="changeFaq()" class="faq-dropdown">
-      <option value="faq1">FAQ 1</option>
-      <option value="faq2">FAQ 2</option>
+      <option value="angular">Angular</option>
+      <option value="javascript">Javascript</option>
+      <option value="css">CSS</option>
+      <option value="html">HTML</option>
     </select>
   </div>
 
@@ -12,17 +14,17 @@
   <div class="search-wrapper">
     <input 
       type="text" 
-      placeholder="Search FAQs..." 
+      placeholder="Search Question..." 
       [(ngModel)]="searchText"
       class="search-box"
     />
   </div>
 
   <!-- FAQ List -->
-  <div *ngFor="let item of filteredFaqs()" class="faq-card">
+  <div *ngFor="let item of filteredFaqs(); let i = index" class="faq-card">
 
     <div class="faq-question" (click)="toggle(item)">
-      <span>{{ item.question }}</span>
+      <span>{{i+1}}. {{ item.question }}</span>
 
       <!-- + / - sign -->
       <span class="toggle-icon">

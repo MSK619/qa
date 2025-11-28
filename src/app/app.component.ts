@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import { cssqa } from './constant/css.constant';
+import { htmlqa } from './constant/html.constant';
+import { jsqa } from './constant/js.constant';
+import { ngqa } from './constant/ng.constant';
 
 @Component({
   selector: 'app-root',
@@ -8,23 +12,25 @@ import { Component } from '@angular/core';
 export class AppComponent {
 
   searchText = '';
-  selectedFaq = 'faq1';
+  selectedFaq = 'angular';
 
-  faq1 = [
-    { question: 'What is your return policy?', answer: 'You can return any unused item within 30 days.', open: false },
-    { question: 'Do you offer customer support?', answer: 'Yes, 24/7 support is available.', open: false },
-  ];
+  angular = ngqa;
+  css = cssqa;
+  javascript = jsqa;
+  html = htmlqa;
 
-  faq2 = [
-    { question: 'Where do you ship?', answer: 'We ship worldwide.', open: false },
-    { question: 'Can I cancel my order?', answer: 'Yes, cancel within 12 hours.', open: false },
-  ];
-
-  faqs = [...this.faq1]; // default
-
+  faqs = [...this.angular];
   changeFaq() {
-    this.searchText = ''; // reset search
-    this.faqs = this.selectedFaq === 'faq1' ? [...this.faq1] : [...this.faq2];
+    this.searchText = '';
+    
+    const faqMap: Record<string, any[]> = {
+      angular: this.angular,
+      javascript: this.javascript,
+      css: this.css,
+      html: this.html
+    };
+  
+    this.faqs = faqMap[this.selectedFaq] || [];
   }
 
   toggle(item: any) {
