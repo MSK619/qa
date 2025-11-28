@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { cssqa } from './constant/css.constant';
 import { htmlqa } from './constant/html.constant';
 import { jsqa } from './constant/js.constant';
@@ -41,5 +41,17 @@ export class AppComponent {
     return this.faqs.filter(f =>
       f.question.toLowerCase().includes(this.searchText.toLowerCase())
     );
+  }
+
+
+  showButton = false;
+
+  @HostListener('window:scroll', []) 
+  onWindowScroll() {
+    this.showButton = window.pageYOffset > 300;
+  }
+
+  scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 }
