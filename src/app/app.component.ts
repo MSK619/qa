@@ -3,6 +3,7 @@ import { cssqa } from './constant/css.constant';
 import { htmlqa } from './constant/html.constant';
 import { jsqa } from './constant/js.constant';
 import { ngqa } from './constant/ng.constant';
+import { sc } from './constant/scenario.constant';
 
 @Component({
   selector: 'app-root',
@@ -18,6 +19,7 @@ export class AppComponent {
   css = cssqa;
   javascript = jsqa;
   html = htmlqa;
+  scenario = sc;
 
   faqs = [...this.javascript];
   changeFaq() {
@@ -27,7 +29,8 @@ export class AppComponent {
       angular: this.angular,
       javascript: this.javascript,
       css: this.css,
-      html: this.html
+      html: this.html,
+      scenario : this.scenario
     };
   
     this.faqs = faqMap[this.selectedFaq] || [];
