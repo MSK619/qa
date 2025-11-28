@@ -12,17 +12,17 @@ import { ngqa } from './constant/ng.constant';
 export class AppComponent {
 
   searchText = '';
-  selectedFaq = 'angular';
+  selectedFaq = 'javascript';
 
   angular = ngqa;
   css = cssqa;
   javascript = jsqa;
   html = htmlqa;
 
-  faqs = [...this.angular];
+  faqs = [...this.javascript];
   changeFaq() {
     this.searchText = '';
-    
+
     const faqMap: Record<string, any[]> = {
       angular: this.angular,
       javascript: this.javascript,
@@ -39,8 +39,7 @@ export class AppComponent {
 
   filteredFaqs() {
     return this.faqs.filter(f =>
-      f.question.toLowerCase().includes(this.searchText.toLowerCase()) ||
-      f.answer.toLowerCase().includes(this.searchText.toLowerCase())
+      f.question.toLowerCase().includes(this.searchText.toLowerCase())
     );
   }
 }

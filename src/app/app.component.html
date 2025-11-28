@@ -3,8 +3,8 @@
   <!-- Dropdown -->
   <div class="dropdown-wrapper">
     <select [(ngModel)]="selectedFaq" (change)="changeFaq()" class="faq-dropdown">
-      <option value="angular">Angular</option>
-      <option value="javascript">Javascript</option>
+      <option value="javascript">JAVASCRIPT</option>
+      <option value="angular">ANGULAR</option>
       <option value="css">CSS</option>
       <option value="html">HTML</option>
     </select>
@@ -33,7 +33,8 @@
     </div>
 
     <div class="faq-answer" [class.open]="item.open">
-      <p>{{ item.answer }}</p>
+      <!-- <p>{{ item.answer }}</p> -->
+      <p [innerHTML]="item.answer"></p>
     </div>
 
   </div>
