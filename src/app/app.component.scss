@@ -126,3 +126,57 @@
     background: #424242;
   }
   
+
+  .faq-answer {
+    position: relative;
+  }
+  
+  
+  /* Tooltip style */
+  /* Base button */
+.copy-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 4px;
+  position: relative;
+}
+
+/* Copy button in the question row */
+.copy-question {
+  margin-left: auto;
+  margin-right: 8px;
+}
+
+/* Copy button inside answer */
+.copy-answer {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+}
+
+/* Tooltip styling */
+.copy-btn[data-tooltip]::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 130%;
+  right: 0;
+  background: #333;
+  color: #fff;
+  padding: 4px 8px;
+  font-size: 12px;
+  border-radius: 4px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(5px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.copy-btn[data-tooltip]:hover::after,
+.copy-btn[data-tooltip][data-tooltip="Copied!"]::after {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+  

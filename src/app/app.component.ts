@@ -21,6 +21,9 @@ export class AppComponent {
   html = htmlqa;
   scenario = sc;
 
+  copiedIndex: string | null = null;
+
+
   faqs = [...this.javascript];
   changeFaq() {
     this.searchText = '';
@@ -57,4 +60,21 @@ export class AppComponent {
   scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
+
+
+  copyText(html: string, index: number, type: 'question' | 'answer') {
+    // Convert HTML → plain text for answers
+    const temp = document.createElement("div");
+    temp.innerHTML = html;
+    const text = temp.innerText;
+  
+    navigator.clipboard.writeText(text).then(() => {
+      this.copiedIndex = (type === 'question' ? 'q' : 'a') + index;
+  
+      setTimeout(() => {
+        this.copiedIndex = null;
+      }, 1500);
+    });
+  }
+  
 }
