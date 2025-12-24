@@ -7,33 +7,15 @@ import { MatSidenav } from '@angular/material/sidenav';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  selectedTopic: 'angular' | 'js' | 'css' = 'angular';
+  selectedTopic = 'angular';
 
-  language = ['angular', 'js','css'];
+  language = ['angular', 'javascript','css'];
   @ViewChild(MatSidenav) sidenav!: MatSidenav;
-  
-  questionsMap = {
-    angular: [
-      'Component-based architecture',
-      'Dependency Injection',
-      'Signals and RxJS'
-    ],
-    js: [
-      'Single-threaded runtime',
-      'Event loop',
-      'Closures and hoisting'
-    ],
-    css: [
-      'Flexbox and Grid',
-      'Responsive layouts',
-      'Specificity and cascade'
-    ]
-  };
 
   constructor(
   ) {}
 
-  selectTopic(topic: 'angular' | 'js' | 'css'): void {
+  selectTopic(topic: 'angular' | 'javascript' | 'css'): void {
     this.selectedTopic = topic;
   
     // Close sidenav after selection
