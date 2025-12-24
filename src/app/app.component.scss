@@ -86,3 +86,55 @@ mat-nav-list a[mat-list-item]:hover {
 
 
 ///
+/// 
+.page-content {
+  padding: 24px;
+  background-color: #fafafa;
+
+
+/* List wrapper */
+.content-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 720px;
+}
+
+/* Individual item */
+.content-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  padding: 16px;
+  background-color: #ffffff;
+  border-radius: 12px;
+
+  border: 1px solid #e0e0e0;
+  transition: box-shadow 0.2s ease, transform 0.1s ease;
+}
+
+/* Hover feedback */
+.content-item:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Text block */
+.item-body {
+  flex: 1;
+}
+
+.item-title {
+  font-size: 15px;
+  font-weight: 600;
+}
+/* Copy button subtlety */
+.content-item button {
+  opacity: 0.6;
+  transition: opacity 0.2s ease;
+}
+
+.content-item:hover button {
+  opacity: 1;
+}
+}

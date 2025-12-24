@@ -15,10 +15,12 @@ export class AppComponent {
   constructor(
   ) {}
 
-  selectTopic(topic: 'angular' | 'javascript' | 'css'): void {
+  selectTopic(topic) {
     this.selectedTopic = topic;
-  
-    // Close sidenav after selection
     this.sidenav.close();
+  }
+
+  copyText(text: string) {
+    navigator.clipboard.writeText(text);
   }
 }

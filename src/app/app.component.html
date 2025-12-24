@@ -12,7 +12,7 @@
   <!-- Sidenav Header -->
   <div class="sidenav-header">
     <mat-icon>apps</mat-icon>
-    <span>My Application</span>
+    <span>MSK</span>
   </div>
 
   <!-- Navigation -->
@@ -58,8 +58,27 @@
 
     <!-- Page Content -->
     <main class="page-content">
-      <p>Welcome to the application. {{selectedTopic}}</p>
-
+      <div class="content-list">
+        <div class="content-item" *ngFor="let r of language; index as i">
+          <!-- Number -->
+          
+          <!-- Text -->
+          <div class="item-body">
+            <div class="item-title">What is Lifecyle Hooks & How its works in angular?</div>
+            <!-- <div class="item-subtitle"></div> -->
+          </div>
+          
+          <!-- Action -->
+          <!-- <span class="item-index">{{ i + 1 }}</span> -->
+          <button
+            mat-icon-button
+            aria-label="Copy {{ r }}"
+            (click)="copyText(r)"
+          >
+            <mat-icon>content_copy</mat-icon>
+          </button>
+        </div>
+      </div>
     
     </main>
 
