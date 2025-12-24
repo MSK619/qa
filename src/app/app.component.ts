@@ -1,9 +1,5 @@
-import { Component, HostListener } from '@angular/core';
-import { cssqa } from './constant/css.constant';
-import { htmlqa } from './constant/html.constant';
-import { jsqa } from './constant/js.constant';
-import { ngqa } from './constant/ng.constant';
-import { sc } from './constant/scenario.constant';
+import { Component, ViewChild } from '@angular/core';
+import { MatSidenav } from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-root',
@@ -11,70 +7,36 @@ import { sc } from './constant/scenario.constant';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  selectedTopic: 'angular' | 'js' | 'css' = 'angular';
 
-  searchText = '';
-  selectedFaq = 'javascript';
-
-  angular = ngqa;
-  css = cssqa;
-  javascript = jsqa;
-  html = htmlqa;
-  scenario = sc;
-
-  copiedIndex: string | null = null;
-
-
-  faqs = [...this.javascript];
-  changeFaq() {
-    this.searchText = '';
-
-    const faqMap: Record<string, any[]> = {
-      angular: this.angular,
-      javascript: this.javascript,
-      css: this.css,
-      html: this.html,
-      scenario : this.scenario
-    };
+  language = ['angular', 'js','css'];
+  @ViewChild(MatSidenav) sidenav!: MatSidenav;
   
-    this.faqs = faqMap[this.selectedFaq] || [];
-  }
+  questionsMap = {
+    angular: [
+      'Component-based architecture',
+      'Dependency Injection',
+      'Signals and RxJS'
+    ],
+    js: [
+      'Single-threaded runtime',
+      'Event loop',
+      'Closures and hoisting'
+    ],
+    css: [
+      'Flexbox and Grid',
+      'Responsive layouts',
+      'Specificity and cascade'
+    ]
+  };
 
-  toggle(item: any) {
-    item.open = !item.open;
-  }
+  constructor(
+  ) {}
 
-  filteredFaqs() {
-    return this.faqs.filter(f =>
-      f.question.toLowerCase().includes(this.searchText.toLowerCase())
-    );
-  }
-
-
-  showButton = false;
-
-  @HostListener('window:scroll', []) 
-  onWindowScroll() {
-    this.showButton = window.pageYOffset > 300;
-  }
-
-  scrollToTop() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-
-
-  copyText(html: string, index: number, type: 'question' | 'answer') {
-    // Convert HTML → plain text for answers
-    const temp = document.createElement("div");
-    temp.innerHTML = html;
-    const text = temp.innerText;
+  selectTopic(topic: 'angular' | 'js' | 'css'): void {
+    this.selectedTopic = topic;
   
-    navigator.clipboard.writeText(text).then(() => {
-      this.copiedIndex = (type === 'question' ? 'q' : 'a') + index;
-  
-      setTimeout(() => {
-        this.copiedIndex = null;
-      }, 1500);
-    });
+    // Close sidenav after selection
+    this.sidenav.close();
   }
-  
 }

@@ -987,8 +987,8 @@ export const jsqa = [
     {
       "question": "What is arrays in JavaScript?",
       "answer": "<p>Arrays is an important JavaScript concept used frequently in development. It helps structure logic, improve readability, or handle application behavior depending on how it is used.</p><pre><code>// Example demonstrating arrays\nconsole.log('Example of arrays');\n</code></pre>",
-      "open": false
-    },
+      "open": 
+    },false
     {
       "question": "What is objects in JavaScript?",
       "answer": "<p>Objects is an important JavaScript concept used frequently in development. It helps structure logic, improve readability, or handle application behavior depending on how it is used.</p><pre><code>// Example demonstrating objects\nconsole.log('Example of objects');\n</code></pre>",
