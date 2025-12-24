@@ -1,6 +1,6 @@
 export const ngqa = [
   {
-    "question": "Angular 20 Updates?",
+    "question": "Angular 20,21 Updates?",
     "answer": ``
   }
 ]
