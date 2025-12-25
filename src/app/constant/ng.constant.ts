@@ -64,7 +64,7 @@ export const ngqa = [
     "answer": ``
   },
   {
-    "question": "How to updgrate Angular Project.",
+    "question": "How to upgrade Angular Project.",
     "answer": ``
   }
 ]
