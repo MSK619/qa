@@ -9,6 +9,9 @@
   gap: 12px;
   background-color: #ffffff;
   border-bottom: 1px solid #e0e0e0;
+  position: sticky;
+    top: 0px;
+    z-index: 99;
 }
 
 /* Push the right action to the end */
