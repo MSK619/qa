@@ -53,23 +53,40 @@
 
     <main class="page-content">
       <div class="content-list">
-        <div class="content-item" *ngFor="let qa of questionList; index as i">
-          
+        <div
+          class="content-item"
+          *ngFor="let qa of questionList; index as i"
+          (click)="toggle(i)"
+        >
           <div class="item-body">
-            <div class="item-title">{{i+1}}. {{qa.question}}</div>
+            <div class="item-title">
+              {{ i + 1 }}. {{ qa.question }}
+            </div>
+    
+            <!-- Expanded content -->
+            <div
+              class="item-answer"
+              *ngIf="qa.open"
+            >
+            <ng-container *ngFor="let ans of qa.answer">
+              <div>
+                {{ans}}
+              </div>
+            </ng-container>
+            </div>
           </div>
-          
+    
           <button
             mat-icon-button
             aria-label="Copy {{ qa.question }}"
-            (click)="copyText(qa.question)"
+            (click)="copyText(qa.question); $event.stopPropagation()"
           >
             <mat-icon>content_copy</mat-icon>
           </button>
         </div>
       </div>
-    
     </main>
+    
 
   </mat-sidenav-content>
 

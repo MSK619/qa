@@ -138,4 +138,21 @@ mat-nav-list a[mat-list-item]:hover {
 .content-item:hover button {
   opacity: 1;
 }
+
+.item-answer {
+  margin-top: 8px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(0, 0, 0, 0.75);
+}
+
+/* Cursor hint */
+.content-item {
+  cursor: pointer;
+}
+
+/* Prevent button from inheriting pointer intent */
+.content-item button {
+  cursor: pointer;
+}
 }

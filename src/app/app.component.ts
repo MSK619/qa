@@ -17,6 +17,8 @@ export class AppComponent {
   language = ['angular', 'javascript','css','html','scenario'];
   @ViewChild(MatSidenav) sidenav!: MatSidenav;
   questionList:any;
+  expandedIndex: number | null = null;
+
 
   constructor(
   ) {}
@@ -53,5 +55,11 @@ export class AppComponent {
 
   copyText(text: string) {
     navigator.clipboard.writeText(text);
+  }
+
+  toggle(index: number): void {
+    this.questionList.forEach((item, i) => {
+      item.open = i === index ? !item.open : false;
+    });
   }
 }
