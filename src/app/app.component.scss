@@ -139,20 +139,45 @@ mat-nav-list a[mat-list-item]:hover {
   opacity: 1;
 }
 
+// answer
 .item-answer {
-  margin-top: 8px;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+
+  margin-top: 6px;
+  padding-left: 12px;
+  border-left: 3px solid transparent;
+
   font-size: 14px;
   line-height: 1.6;
   color: rgba(0, 0, 0, 0.75);
+
+  transition:
+    max-height 0.25s ease,
+    opacity 0.2s ease,
+    border-color 0.2s ease;
 }
 
-/* Cursor hint */
+/* Open state */
+.item-answer.open {
+  max-height: 500px; /* enough for multiple lines */
+  opacity: 1;
+  border-left-color: #3f51b5;
+}
+
+/* Spacing for answer lines */
+.item-answer div {
+  padding: 2px 0;
+}
+
+/* Expanded card feedback */
 .content-item {
-  cursor: pointer;
+  transition: box-shadow 0.2s ease, background-color 0.2s ease;
 }
 
-/* Prevent button from inheriting pointer intent */
-.content-item button {
-  cursor: pointer;
+.content-item:has(.item-answer.open) {
+  background-color: #fdfdff;
+  box-shadow: 0 4px 12px rgba(63, 81, 181, 0.08);
 }
 }
