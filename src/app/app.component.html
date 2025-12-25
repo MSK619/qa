@@ -42,13 +42,32 @@
       <span class="header-title">{{selectedTopic | uppercase}}</span>
 
       <button
-        mat-mini-fab
-        color="accent"
-        aria-label="More options"
-        class="header-action"
-      >
-        <mat-icon aria-hidden="true">more_vert</mat-icon>
-      </button>
+  mat-mini-fab
+  color="accent"
+  aria-label="More options"
+  class="header-action"
+  [matMenuTriggerFor]="settingsMenu"
+>
+  <mat-icon aria-hidden="true">more_vert</mat-icon>
+</button>
+
+<mat-menu #settingsMenu="matMenu">
+  <button mat-menu-item (click)="onClickSetting();">
+    <mat-icon>settings</mat-icon>
+    <span>Settings</span>
+  </button>
+
+  <!-- <button mat-menu-item>
+    <mat-icon>person</mat-icon>
+    <span>Profile</span>
+  </button>
+
+  <button mat-menu-item>
+    <mat-icon>logout</mat-icon>
+    <span>Logout</span>
+  </button> -->
+</mat-menu>
+
     </header>
 
     <main class="page-content">

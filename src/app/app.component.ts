@@ -62,4 +62,8 @@ export class AppComponent {
       item.open = i === index ? !item.open : false;
     });
   }
+
+  onClickSetting(){
+    alert('Please Check Question! Why you want to check setting.')
+  }
 }
