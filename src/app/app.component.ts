@@ -58,9 +58,10 @@ export class AppComponent {
   }
 
   toggle(index: number): void {
-    this.questionList.forEach((item, i) => {
-      item.open = i === index ? !item.open : false;
-    });
+    this.questionList[index].open = !this.questionList[index].open;
+    // this.questionList.forEach((item, i) => {
+    //   item.open = i === index ? !item.open : false;
+    // });
   }
 
   onClickSetting(){
